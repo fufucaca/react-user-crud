@@ -1,0 +1,7 @@
+# Root dependencies
+/node_modules
+
+# Frontend dependencies and build files
+/client/node_modules
+/client/dist
+.vite

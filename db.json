@@ -1,0 +1,50 @@
+{
+  "admin": {
+    "email": "admin@example.com",
+    "password": "12345"
+  },
+  "session": {
+    "item": {
+      "item": {
+        "item": {
+          "isLoggedIn": false
+        },
+        "isLoggedIn": true
+      },
+      "isLoggedIn": false
+    },
+    "isLoggedIn": true
+  },
+  "users": [
+    {
+      "id": "2b23",
+      "name": "yooyeon",
+      "email": "yooyeon@triples.com",
+      "password": "ulala123"
+    },
+    {
+      "id": "9ce6",
+      "name": "chaewon",
+      "email": "chaewon@triples.com",
+      "password": "ulala123"
+    },
+    {
+      "id": "1379",
+      "name": "xinyu",
+      "email": "xinyu@triples.com",
+      "password": "ulala123"
+    },
+    {
+      "id": "f9dc",
+      "name": "dahyun",
+      "email": "dahyun@triples.com",
+      "password": "ulala123"
+    },
+    {
+      "id": "0863",
+      "name": "chaeyon",
+      "email": "chaeyon@triples.com",
+      "password": "ulala123"
+    }
+  ]
+}
