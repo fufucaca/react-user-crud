@@ -15,6 +15,8 @@ const DashboardPage = () => {
     const [editingUser, setEditingUser] = useState(null);
     // state untuk menampung data saat mengedit
     const [currentUserData, setCurrentUserData] = useState({id: null, name: '', email: '', password: ''});
+    // state untuk menampung search
+    const [searchQuery, setSearchQuery] = useState('');
     // hook navigate
     const navigate = useNavigate();
     
@@ -139,6 +141,14 @@ const DashboardPage = () => {
         return <div className="text-center mt-10 text-red-500">{error}</div>
     }
 
+    // logika untuk fungsi search
+    const filteredUsers = users.filter(user => 
+        // cek apakah nama pengguna mengandung teks pencarian
+        user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        // atau cek apakah email mengandung kata yang ada di pencarian
+        user.email.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+
     // tampilan utama jika data berhasil dimuat 
     return (
         <div className="container mx-auto px-4">
@@ -184,6 +194,17 @@ const DashboardPage = () => {
           </form>
          </div>
 
+         {/* input search */}
+         <div className="mb-4">
+           <input 
+           type="text"
+           placeholder="Cari berdasarkan nama atau email..."
+           value={searchQuery}
+           onChange={e => setSearchQuery(e.target.value)}
+           className="w-full p-2 border rounded-md"
+           />
+         </div>
+
          {/* table untuk menampilkan data user */}
          <div className="overflow-x-auto rounded-md">
           <table className="min-w-full bg-white border border-gray-200">
@@ -196,7 +217,7 @@ const DashboardPage = () => {
              </tr>
            </thead>
            <tbody>
-            {users.map(user => (
+            {filteredUsers.map(user => (
                 <tr key={user.id} className="hover:bg-gray-100">
                    {editingUser === user.id ? (
                     // tampilan saat mode edit
